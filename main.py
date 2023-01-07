@@ -29,6 +29,7 @@ while playing:
     window.update()
     
     if snake.head.distance(food) < 20:
+        snake.extend()
         food.refresh()
         scoreboard.increase_score()
     

@@ -36,13 +36,13 @@ class Snake:
     def extend(self):
         """Adds a new part to the snake when it eats food."""
         
-        new_position = (self.parts[len(self.parts) - 1].xcor(), self.parts[len(self.parts) - 1].ycor())
+        new_position = (self.parts[len(self.parts) - 1].xcor() - 20, self.parts[len(self.parts) - 1].ycor() - 20)
         self.add_part(new_position)
         
     def move(self):
         """Moves the snake's body."""
         
-        for part_n in range(2, 0, -1):
+        for part_n in range(len(self.parts) - 1, 0, -1):
             self.parts[part_n].goto(self.parts[part_n - 1].xcor(), self.parts[part_n - 1].ycor())
         
         self.head.forward(MOVE_DISTANCE)
